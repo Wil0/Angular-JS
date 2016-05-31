@@ -1,0 +1,20 @@
+{
+  "name": "angular",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "emilio <emsmnndz@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/Wil0/Angular-JS",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.6"
+  }
+}
