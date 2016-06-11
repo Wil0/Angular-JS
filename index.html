@@ -2,23 +2,40 @@
 <html lang="en" ng-app='toDoApp'>
   <head>
     <meta charset="utf-8">
-    <title>title</title>
+    <title>ToDos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
     <script type="text/javascript" src="app.js"></script>
     <script type="text/javascript" src="controllers.js"></script>
     <script type="text/javascript" src="ToDoFactory.js"></script>
     <script type="text/javascript" src="ToDoService.js"></script>
     </head>
-  <body>
-    <div ng-controller="ToDoController as controller">
-    <p ng-repeat="todo in controller.todos">
-      {{ todo.text }}: {{ todo.completed ? "Yes" : "Not yet" }}
-      <!-- Click this and complete the Todo -->
-      <button ng-click="showButton=true; todo.complete();" ng-hide='showButton'>Done?</button>
-    </p>
-    <input type="text" ng-model="todoText">
-    <button ng-click="controller.addToDo(todoText);">Add a ToDo</button>
-    <button ng-click="controller.removeToDo();">Remove last ToDo</button>
-  </div>
-  </body>
+    <body class="card-panel deep-purple lighten-3 row">
+      <h4 class="col s6 offset-s4">The ToDo list</h4>
+
+      </div>
+      <div ng-controller="ToDoController as controller">
+        <input type="text" ng-model="todoText" placeholder="add here a new ToDo">
+        <button class="waves-effect waves-light btn material-icons right" ng-click="controller.addToDo(todoText);">Add a ToDo</button>
+        <button class="waves-effect waves-light btn material-icons right" ng-click="controller.removeToDo();">Remove last ToDo</button>
+          <table class="col s6 offset-s3 highlight">
+            <thead>
+              <tr>
+                <th>To Do:</th>
+                <th>Completed:</th>
+              </tr>
+            </thead>
+            <tbody ng-repeat="todo in controller.todos">
+              <tr>
+                <td>{{ todo.text }}:</td>
+                <td>{{ todo.completed ? "Yes" : "Not yet" }}</td>
+                <td>
+                  <button class="waves-effect waves-light btn material-icons right" ng-click="showButton=true; todo.complete();" ng-hide='showButton'>Done?</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+    </body>
+ </form>
 </html>
